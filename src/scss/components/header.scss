@@ -18,6 +18,12 @@ header {
         border-radius: 10px;
       }
     }
+
+    &:hover {
+      a::after {
+        animation: extend 0.5s ease-in-out forwards;
+      }
+    }
   }
   .container {
     display: flex;
@@ -26,11 +32,40 @@ header {
   }
 
   .nav {
-    a {
-      color: $main_blue;
-      margin-left: 20px;
-      &:hover {
-        color: $red;
+    ul {
+      list-style-type: none;
+      display: flex;
+      a {
+        color: $main_blue;
+        margin-left: 20px;
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+}
+
+@keyframes extend {
+  0% {
+    width: 50%;
+  }
+  30% {
+    width: 100%;
+  }
+  50% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    .logo-container {
+      a {
+        font-size: 30px;
       }
     }
   }

@@ -1,0 +1,34 @@
+.article {
+  &--archive {
+    padding-bottom: 50px;
+    border-bottom: 1px solid #c5c5c5;
+    margin-bottom: 50px;
+
+    .headline {
+      color: $main_blue;
+
+      &:hover {
+        color: $light_blue;
+      }
+    }
+  }
+}
+
+.pagination-section {
+  margin: 50px 0;
+  .page-numbers {
+    border: 1px solid $red;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .current {
+    background-color: $red;
+    color: $white;
+  }
+}

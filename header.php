@@ -18,9 +18,7 @@
             </div>
 
             <nav class="nav">
-                <a href="#">About</a>
-                <a href="#">Articles</a>
-                <a href="#">Contact</a>
+                <?php wp_nav_menu(['primary_menu']) ?>
             </nav>
         </div>
     </header>

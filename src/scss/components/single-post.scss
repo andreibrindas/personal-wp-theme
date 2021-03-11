@@ -3,3 +3,12 @@
     margin-bottom: 50px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .bottom-nav {
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

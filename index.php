@@ -2,25 +2,41 @@
 
 <section class="hero">
     <div class="container">
-        <h1 class="main-headline"><?php the_title(); ?></h1>
+        <h1 class="main-headline">Articles I've Written</h1>
     </div>
 </section>
 
 <section class="content">
     <div class="container">
-        <?php the_content(); ?>
+        <?php if ( have_posts() ) :  ?>
+            <?php while ( have_posts() ) : the_post(); ?>
+
+                <article class="article article--archive">
+                    <a href="<?php the_permalink() ?>" class="headline">
+                        <?php the_title('<h2 >', '</h2>') ?>
+                    </a>
+                    <p>
+                        <?php echo wp_trim_words( get_the_content(), 25, " [ . . . ]" ) ?>
+                    </p>
+                    <a href="<?php the_permalink(  ) ?>">Read the article</a>
+                </article>
+                
+            <?php endwhile; ?>
+        <?php else : ?>
+            <h3>Nothing to show yet</h3>
+        <?php endif; ?>
     </div>
 </section>
 
-<section class="bottom-nav">
-    <div class="container flex justify-between align-center mt-5">
-        <div class="previous">
-            <?php previous_post_link( '<strong>Previous: %link</strong>' ); ?>
-        </div>
-        <div class="next">
-            <?php next_post_link( '<strong>Next: %link</strong>' ); ?>
-        </div>
+<section class="pagination-section">
+
+    <div class="container flex">
+        <?php echo paginate_links([
+            "prev_text" => "<span>&ldca;</span>",
+            "next_text" => "<span>&rdca;</span>"
+        ]) ?>
     </div>
+
 </section>
 
 
