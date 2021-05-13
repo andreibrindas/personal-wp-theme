@@ -1,10 +1,24 @@
-<?php get_header(); ?>
+<?php get_header( 'blog-post' ); ?>
+
+<?php
+$categories = get_categories();
+?>
 
 <section class="hero">
     <div class="container">
+        <div class="categories-container">
+            <?php foreach ( $categories as $cat ) : ?>
+                <a class="single-post__category-link" href="<?php echo get_category_link($cat->term_id) ?>"><?php echo $cat->name ?></a>
+            <?php endforeach; ?>
+        </div>
         <h1 class="main-headline"><?php the_title(); ?></h1>
     </div>
 </section>
+
+<div class="container">
+    <section class="featured-image-section" style="background-image:url(<?php echo get_the_post_thumbnail_url(get_the_ID(),'full') ?>)">
+    </section>
+</div>
 
 <section class="content">
     <div class="container">
